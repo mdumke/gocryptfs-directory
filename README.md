@@ -10,7 +10,7 @@ Make sure the folder `secrets` is always empty!
 In order to work with your encrypted directory, a few steps are necessary:
 
 1. Open a `terminal` and go to your secret folder: `cd ~/secret`
-2. Open the directory: `make open`
+2. Decrypt the directory: `make open`
 3. Now you can use the `secrets` directory, just like you would use a USB stick
 4. Don't forget to run `make close` when you're done!
 
