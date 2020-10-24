@@ -17,21 +17,16 @@ In order to work with your encrypted directory, a few steps are necessary:
 
 ## Setup
 
-The program `gocryptfs` needs to be installed and a few directories need to be in created:
+Download this repository into an empty directory `~/secret`. The program `gocrpytfs` needs to be installed on your computer: `sudo apt install gocryptfs`.
+
+Now, create two directories and initialize encryption. This can be done using a make task:
 
 ```bash
-# install gocryptfs
-sudo apt install gocryptfs
+# go to the secret directory
+cd ~/secret
 
-# create directory structure
-mkdir -p ~/secret/secrets ~/secret/encrypted
-```
-
-Now, the encrypted directory can be initialized:
-
-```bash
-# setup encryption
-gocryptfs --init ~/secret/encrypted
+# and run the setup tasks
+make setup
 ```
 
 That's it. If you use different directory names, be sure to change the `Makefile` accordingly.
@@ -39,6 +34,6 @@ That's it. If you use different directory names, be sure to change the `Makefile
 
 ## Recovery
 
-When you open the directory, a `master key` will be displayed. Print this out and store it somewhere safe. If you forget your password, this is the only way to get to your data again. To use the masterkey, enter it in the `Makefile`, then run `make recovery`. Then delete the key again.
+When you mount the directory, a `master key` will be displayed. Print this out and store it somewhere safe. If you forget your password, this is the only way to get to your data again. To use the masterkey, enter it in the `Makefile`, then run `make recovery`. Then delete the key again.
 
 Also: if it's really important data, it's always a good idea to have a backup!

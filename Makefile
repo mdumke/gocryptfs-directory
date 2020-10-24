@@ -6,3 +6,14 @@ recovery:
 
 close:
 	fusermount -u "${HOME}/secret/secrets"
+
+setup:
+# create directories
+	@ if [ ! -d "$(shell pwd)/encrypted" ]; then mkdir "$(shell pwd)/encrypted"; fi
+	@ if [ ! -d "$(shell pwd)/secrets" ]; then mkdir "$(shell pwd)/secrets"; fi
+
+# initialize encryption
+	@ if [ ! -f "$(shell pwd)/encrypted/gocryptfs.conf" ]; then \
+		gocryptfs --init "$(shell pwd)/encrypted" \
+	;fi
+
