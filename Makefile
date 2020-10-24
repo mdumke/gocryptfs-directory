@@ -1,11 +1,11 @@
 open:
-	gocryptfs "${HOME}/secret/encrypted" "${HOME}/secret/secrets"
+	@ gocryptfs "${HOME}/secret/encrypted" "${HOME}/secret/secrets"
 
 recovery:
-	gocryptfs -masterkey=<master> "${HOME}/secret/encrypted" "${HOME}/secret/secrets"
+	@ gocryptfs -masterkey=<master> "${HOME}/secret/encrypted" "${HOME}/secret/secrets"
 
 close:
-	fusermount -u "${HOME}/secret/secrets"
+	@ fusermount -u "${HOME}/secret/secrets" && echo "Closed successfully"
 
 setup:
 # create directories
